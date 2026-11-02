@@ -10,7 +10,7 @@ class Solution:
 
     for i in range(n):
       len1 = self.expand(s, i, i)
-      len2 = self.expand(s, i, i + 1)  # Fixed: passed both i and i + 1
+      len2 = self.expand(s, i, i + 1)  
       length = max(len1, len2)
 
       if length > (end - start):
