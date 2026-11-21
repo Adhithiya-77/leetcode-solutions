@@ -1,25 +1,23 @@
-class Solution(object):
-    def validPalindrome(self, s):
-        def func(s,l,r):
-            while l <r :
-                if s[l] != s[r]:
-                    return False
-                l+=1
-                r-=1
-            return True
+class Solution:
+    def validPalindrome(self, s: str) -> bool:
+        left = 0
+        right = len(s)-1
 
-        l = 0
-        r = len(s)-1
+        while left <= right :
+            if s[left] != s[right] :
+                return self.checkpalindrome(s,left+1,right) or self.checkpalindrome(s,left,right-1)
 
-        while l<r:
-            if s[l] != s[r]:
-                return func(s,l,r-1) or func(s,l+1,r)
+            left +=1
+            right -=1
+        return True    
 
-            r-=1
-            l+=1
+    def checkpalindrome(self,s,left,right):
+        while left <=right:
+            if s[left] != s[right]:
+                return False
+            left+=1
+            right-=1
         return True                     
 
-
-
-
+    
         
